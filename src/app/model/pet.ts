@@ -1,3 +1,5 @@
+import {Owner} from './owner';
+
 export class Pet {
 	id: any;
 	name: string;
