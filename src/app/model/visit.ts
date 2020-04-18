@@ -1,12 +1,15 @@
+import {Pet} from './pet';
+import {Owner} from './owner';
+
+
 export class Visit {
 	id: any;
-	visit_date: any;
+	visit_date: Date;
 	visit_goal: string;
 	pet: any;
 	owner: any;
 
 	constructor() {
-		this.visit_date = new Date();
 		this.pet = new Pet();
 		this.owner = new Owner();
 	}
