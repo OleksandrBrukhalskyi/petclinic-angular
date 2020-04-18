@@ -1,1 +1,75 @@
-<p>owner works!</p>
+<br>
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+</mat-form-field>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let owner">{{owner.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="surname">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Surname</th>
+    <td mat-cell *matCellDef="let owner">{{owner.surname}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="firstname">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Firstname </th>
+    <td mat-cell *matCellDef="let owner">{{owner.firstname}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="patronymic">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Patronymic </th>
+    <td mat-cell *matCellDef="let owner">{{owner.patronymic}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+    <td *matCellDef="let owner">{{owner.address}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone_number">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+    <td mat-cell *matCellDef="let owner">{{owner.phoneNumber}}</td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let owner; columns: displayedColumns;"></tr>
+
+</table>
+<mat-paginator [length]="100"
+               [pageSize]="10"
+               [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>
+
+
+
+
+
+
+
+
+
+<!--<table>-->
+<!--  <thead align="center">-->
+<!--    <th>ID</th>-->
+<!--    <th>Surname</th>-->
+<!--    <th>Firstname</th>-->
+<!--    <th>Patronymic</th>-->
+<!--    <th>Phone</th>-->
+<!--    <th>Address</th>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--    <tr *ngFor="let owner of owners">-->
+<!--      <th scope="row">{{owner.id}}</th>-->
+<!--      <th>{{owner.surname}}</th>-->
+<!--      <td>{{owner.firstname}}</td>-->
+<!--      <th>{{owner.patronymic}}</th>-->
+<!--      <th>{{owner.phone_number}}</th>-->
+<!--      <th>{{owner.address}}</th>-->
+<!--    </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
