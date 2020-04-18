@@ -1,4 +1,7 @@
+import {Specialty} from './specialty';
+
 export class Veterinarian {
+
 	id: any;
 	surname: string;
 	firstname: string;
