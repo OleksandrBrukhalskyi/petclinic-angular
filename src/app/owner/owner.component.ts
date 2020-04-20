@@ -17,6 +17,7 @@ export class OwnerComponent implements OnInit {
 
   displayedColumns = ['id', 'surname', 'firstname', 'patronymic', 'address', 'phone_number' , 'actions' ];
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
 	owners: any;
 	ownerToUpdate: Owner;
