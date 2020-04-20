@@ -19,11 +19,11 @@ export class OwnerComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-	owners: any;
-	ownerToUpdate: Owner;
-	owner: Owner = new Owner();
-	id: any;
-  private dataSource: any;
+	  private owners: any;
+	  private ownerToUpdate: Owner;
+	  private owner: Owner = new Owner();
+	  private id: any;
+    private dataSource: any;
 
 
   constructor(private ownerService: OwnerService) { }
