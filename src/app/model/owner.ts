@@ -3,6 +3,6 @@ export class Owner {
 	surname: string;
 	firstname: string;
 	patronymic: string;
-	address: string;
+	homeAddress: string;
 	phoneNumber: string;
 }
