@@ -20,10 +20,14 @@ export class OwnerService {
   	return this.http.post(`${this.baseUrl}/add`, owner);
   }
 
-  update(owner: Owner, id: any) {
+  update(owner: Owner, id: number) {
   	return this.http.put(`${this.baseUrl}/${id}`, owner);
   }
   delete(id: any) {
   	return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+
+  getById(id: any) {
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 }
