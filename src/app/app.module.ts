@@ -17,7 +17,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -41,7 +41,8 @@ import {FormsModule} from "@angular/forms";
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

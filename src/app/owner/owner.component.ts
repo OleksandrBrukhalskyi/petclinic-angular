@@ -3,9 +3,10 @@ import {OwnerService} from '../service/owner.service';
 import {Owner} from '../model/owner';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
-import {NgForm} from "@angular/forms";
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {MatPaginator} from "@angular/material/paginator";
+import {NgForm} from '@angular/forms';
+
+import {MatPaginator} from '@angular/material/paginator';
+
 
 
 @Component({
@@ -36,6 +37,7 @@ export class OwnerComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+
   load() {
     // tslint:disable-next-line:indent
   	this.ownerService.getOwners().subscribe((data: {}) => {
@@ -43,6 +45,7 @@ export class OwnerComponent implements OnInit {
   	  this.owners = data;
   	});
   }
+
   loadOwners() {
     this.ownerService.getOwners().subscribe(data => {
       this.owners = data;
@@ -55,13 +58,13 @@ export class OwnerComponent implements OnInit {
     });
   }
 
-  update(owner: Owner){
+  update(owner: Owner) {
     this.ownerToUpdate = owner;
   }
   save() {
-    if(this.ownerToUpdate.id !== '' && this.ownerToUpdate.surname !== '' && this.ownerToUpdate.firstname !== ''
+    if (this.ownerToUpdate.id !== '' && this.ownerToUpdate.surname !== '' && this.ownerToUpdate.firstname !== ''
     && this.ownerToUpdate.patronymic !== '' && this.ownerToUpdate.homeAddress !== '' && this.ownerToUpdate.phoneNumber !== '') {
-      this.ownerService.update(this.ownerToUpdate , this.id).subscribe(() => {
+      this.ownerService.update(this.ownerToUpdate , this.ownerToUpdate.id).subscribe(() => {
         this.load();
         this.ownerToUpdate = null;
       });
@@ -77,6 +80,11 @@ export class OwnerComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  resetForm(form: NgForm) {
+    form.resetForm();
+  }
+
+
 
 
 }
