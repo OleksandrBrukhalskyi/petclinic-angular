@@ -52,9 +52,10 @@ export class OwnerComponent implements OnInit {
     });
   }
 
-  create(f: NgForm){
+  create(f: NgForm) {
     this.ownerService.add(this.owner).subscribe(() => {
       this.load();
+      this.resetForm(f);
     });
   }
 
