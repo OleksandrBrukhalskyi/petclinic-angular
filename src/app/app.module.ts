@@ -18,12 +18,14 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { PetComponent } from './pet/pet.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    OwnerComponent
+    OwnerComponent,
+    PetComponent
   ],
   imports: [
     BrowserModule,
