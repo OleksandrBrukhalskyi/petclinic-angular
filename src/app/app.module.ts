@@ -19,6 +19,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PetComponent } from './pet/pet.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { PetComponent } from './pet/pet.component';
     MatIconModule,
     MatTooltipModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
 
   ],
   providers: [],
