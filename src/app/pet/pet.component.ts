@@ -68,6 +68,10 @@ export class PetComponent implements OnInit {
   resetForm(form: NgForm) {
     form.resetForm();
   }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
 
 }
