@@ -30,6 +30,7 @@ export class PetComponent implements OnInit {
     this.getPets();
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+    this.getOwners();
   }
   getPets() {
     this.petService.getPets().subscribe((data: {}) => {
@@ -42,9 +43,11 @@ export class PetComponent implements OnInit {
       this.owners = data;
     });
   }
-  create(pet: Pet) {
+
+  create(pet: NgForm) {
     this.petService.add(this.pet).subscribe(() => {
       this.getPets();
+      this.resetForm(pet);
     });
   }
   update(pet: Pet) {
@@ -53,7 +56,7 @@ export class PetComponent implements OnInit {
   }
   save() {
     if(this.petToUpdate.id !== '' && this.petToUpdate.name !== '' && this.petToUpdate.breed !== ''
-    && this.petToUpdate.date_of_birth !== '' && this.petToUpdate.owner !== '') {
+    && this.petToUpdate.dateOfBirth !== null && this.petToUpdate.owner !== '') {
       this.petService.update(this.petToUpdate, this.petToUpdate.id).subscribe(() => {
         this.getPets();
         this.petToUpdate = null;
@@ -72,6 +75,4 @@ export class PetComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
-
 }
