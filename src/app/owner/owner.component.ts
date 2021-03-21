@@ -6,6 +6,7 @@ import {MatSort} from '@angular/material/sort';
 import {NgForm} from '@angular/forms';
 
 import {MatPaginator} from '@angular/material/paginator';
+import {AuthService} from '../service/auth.service';
 
 
 
@@ -27,7 +28,7 @@ export class OwnerComponent implements OnInit {
     private dataSource: any;
 
 
-  constructor(private ownerService: OwnerService) { }
+  constructor(private ownerService: OwnerService, private authService: AuthService) { }
 
 
   ngOnInit() {
@@ -83,6 +84,10 @@ export class OwnerComponent implements OnInit {
   }
   resetForm(form: NgForm) {
     form.resetForm();
+  }
+  
+  logout(){
+    this.authService.logout();
   }
 
 

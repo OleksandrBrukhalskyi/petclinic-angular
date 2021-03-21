@@ -1,0 +1,13 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Login</mat-label>
+          <input matInput type="text" formControlName="login" maxlength="20">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" maxlength="20">
+        </mat-form-field></td>
+      </tr></table>
+      <button mat-button>Login</button>
+</form>

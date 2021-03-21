@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OwnerComponent } from './owner/owner.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatTableModule} from "@angular/material/table";
 import {CdkTableModule} from "@angular/cdk/table";
 import {MatSortModule} from "@angular/material/sort";
@@ -20,13 +20,18 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PetComponent } from './pet/pet.component';
 import {MatSelectModule} from "@angular/material/select";
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     OwnerComponent,
-    PetComponent
+    PetComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,9 @@ import {MatSelectModule} from "@angular/material/select";
     MatSelectModule
 
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
